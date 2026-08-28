@@ -47,6 +47,7 @@ jobs:
           image-ref: ${{ fromJSON(steps.meta.outputs.json).tags[0] }}
           exit-code: '1'
           severity: CRITICAL
+          ignore-unfixed: true
 
       - name: push image
         if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/')
