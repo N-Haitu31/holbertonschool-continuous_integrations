@@ -74,3 +74,7 @@ This run shows the `1.0.0` tag appear on the published image — generated entir
 docker build -t mon-app .
 docker run -p 5000:5000 mon-app
 ```
+
+## Layer Caching (Task 3)
+
+*(section currently being drafted — before and after measurements to follow)*
