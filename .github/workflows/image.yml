@@ -42,7 +42,7 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: scan image
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@v0.24.0
         with:
           image-ref: ${{ fromJSON(steps.meta.outputs.json).tags[0] }}
           exit-code: '1'
