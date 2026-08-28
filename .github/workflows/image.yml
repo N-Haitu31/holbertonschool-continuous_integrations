@@ -24,6 +24,8 @@ jobs:
             type=ref,event=branch
             type=sha,format=short
             type=semver,pattern={{version}}
+      - name: set up buildx
+        uses: docker/setup-buildx-action@v3
       - name: build and push
         uses: docker/build-push-action@v6
         with:
@@ -31,3 +33,5 @@ jobs:
           push: ${{ github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/') }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
